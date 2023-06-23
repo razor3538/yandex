@@ -37,6 +37,11 @@ func Migrate() {
 				if err != nil {
 					return err
 				}
+
+				err = tx.AutoMigrate(&domain.Byte{}).Error
+				if err != nil {
+					return err
+				}
 				return nil
 			},
 			Rollback: func(tx *gorm.DB) error {
@@ -56,6 +61,11 @@ func Migrate() {
 				}
 
 				err = tx.DropTable("cards").Error
+				if err != nil {
+					return err
+				}
+
+				err = tx.DropTable("bytes").Error
 				if err != nil {
 					return err
 				}

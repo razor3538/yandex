@@ -12,8 +12,8 @@ var DB *gorm.DB
 // InitDB initialize db connection and run migration
 func InitDB() {
 	connectionString := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=disable",
-		Env.DbUser,
-		Env.DbPassword,
+		"postgres",
+		"123",
 		Env.DbHost,
 		Env.DbPort,
 		Env.DbName,

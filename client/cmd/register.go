@@ -3,7 +3,6 @@ package cmd
 import (
 	"client/internal/services"
 	"fmt"
-
 	"github.com/spf13/cobra"
 )
 

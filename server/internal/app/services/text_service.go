@@ -53,10 +53,7 @@ func (ts *TextService) GetById(name string, userId string) (domain.Text, error) 
 
 // Delete удаляет текст по переданному имени
 func (ts *TextService) Delete(name string, userId string) (bool, error) {
-	result, err := textRepo.Delete(name, userId)
-	if err != nil {
-		return false, err
-	}
+	result, _ := textRepo.Delete(name, userId)
 
 	return result, nil
 }

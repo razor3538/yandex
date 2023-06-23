@@ -35,15 +35,3 @@ func (ua *UserAPI) Save(c *gin.Context) {
 
 	c.JSON(http.StatusCreated, userModel)
 }
-
-// Get возвращает пользователя
-func (ua *UserAPI) Get(c *gin.Context) {
-	userModel, err := userService.Get()
-
-	if err != nil {
-		tools.CreateError(http.StatusBadRequest, err, c)
-		return
-	}
-
-	c.JSON(http.StatusOK, userModel)
-}

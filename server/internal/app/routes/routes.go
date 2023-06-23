@@ -21,6 +21,7 @@ func SetupRouter() *gin.Engine {
 	text := api.NewTextAPI()
 	card := api.NewCardAPI()
 	auth := api.NewAuth()
+	bytes := api.NewByteAPI()
 
 	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
@@ -43,6 +44,10 @@ func SetupRouter() *gin.Engine {
 		r.POST("/api/card", card.Save)
 		r.POST("/api/get_card", card.Get)
 		r.DELETE("/api/card", card.Delete)
+
+		r.POST("/api/byte", bytes.Save)
+		r.POST("/api/get_byte", bytes.Get)
+		r.DELETE("/api/byte", bytes.Delete)
 	}
 
 	return r

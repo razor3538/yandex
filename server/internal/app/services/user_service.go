@@ -32,14 +32,3 @@ func (us *UserService) Save(userModel models.SaveUserRequest) (domain.User, erro
 
 	return result, nil
 }
-
-// Get возвращает пользователя
-func (us *UserService) Get() ([]domain.User, error) {
-	users, err := userRepo.Get()
-
-	if err != nil {
-		return []domain.User{}, err
-	}
-
-	return users, nil
-}
